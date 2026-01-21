@@ -1,0 +1,289 @@
+/* ================================================================
+   DAKWAH DIGITAL SYSTEM - FINAL OPTIMIZED
+   ================================================================ */
+
+/* ===================== VARIABLES ===================== */
+:root {
+  --emerald-dark: #062f28;
+  --emerald-main: #0b5e4f;
+  --gold: #22f345;
+  --ivory: #fdfcf9;
+  --white: #ffffff;
+  --soft-gray: #f1f6f4;
+  --shadow-ambient: 0 20px 60px rgba(6, 47, 40, 0.08);
+  --shadow-floating: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --transition-slow: all 0.5s ease-in-out;
+}
+
+/* ===================== RESET / BASE ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth; /* Membuat transisi klik menu jadi halus */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--ivory);
+  color: var(--emerald-dark);
+  line-height: 1.7;
+}
+
+/* FITUR SINKRON: Mencegah judul tertutup Navbar saat diklik */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background: var(--emerald-main);
+  box-shadow: var(--shadow-floating);
+  z-index: 1000;
+}
+
+.logo h2 {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition-slow);
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+  color: var(--gold);
+}
+
+/* ===================== HERO ===================== */
+.hero {
+  min-height: 100vh;
+  padding: 140px 10% 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(rgba(11, 94, 79, 0.75), rgba(11, 94, 79, 0.75)),
+    url("../img/islam.jpg") center/cover no-repeat;
+  color: var(--white);
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: clamp(36px, 5vw, 60px);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+/* ===================== SECTION ===================== */
+.section,
+.alt-section {
+  padding: 80px 10%;
+}
+
+.alt-section {
+  background: var(--soft-gray);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  color: var(--emerald-dark);
+  margin-bottom: 50px;
+}
+/* ===================== NILAI-NILAI ISLAM ===================== */
+#nilai-islam {
+  background: var(--soft-gray); /* Biar beda dari section sebelumnya */
+  padding: 80px 10%;
+}
+
+#nilai-islam .section-title {
+  text-align: center;
+  font-size: 32px;
+  color: var(--emerald-dark);
+  margin-bottom: 40px;
+}
+
+#nilai-islam .img-content {
+  display: block;
+  margin: 0 auto 30px;
+  width: 100%;
+  max-width: 180px; /* Gambar lebih kecil dan centered */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-floating);
+  object-fit: cover;
+}
+
+#nilai-islam ul {
+  max-width: 800px;
+  margin: 0 auto;
+  list-style: disc;
+  padding-left: 20px;
+  color: var(--emerald-dark);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+#nilai-islam ul li {
+  margin-bottom: 12px;
+  transition: var(--transition-slow);
+}
+
+#nilai-islam ul li:hover {
+  color: var(--gold);
+  transform: translateX(5px);
+}
+
+/* ===================== MATERI / ARTIKEL ===================== */
+.artikel-card {
+  background: var(--white);
+  border-radius: 30px;
+  padding: 40px;
+  margin: 0 auto 50px; /* jarak antar artikel lebih lega */
+  max-width: 900px;
+  box-shadow: var(--shadow-ambient);
+  transition: var(--transition-slow);
+}
+
+.artikel-card h3 {
+  margin-bottom: 15px; /* jarak antara judul dan paragraf pertama */
+  font-size: 22px;
+  color: var(--emerald-dark);
+}
+
+.artikel-card p {
+  margin-bottom: 18px; /* jarak antar paragraf */
+  font-size: 16px;
+  line-height: 1.8; /* spasi antar baris lebih nyaman dibaca */
+}
+
+/* ===================== GAMBAR ARTIKEL ===================== */
+.artikel-card img,
+.img-content {
+  display: block; /* center horizontal */
+  margin: 0 auto 25px; /* jarak bawah dan tengah */
+  width: 170px; /* ukuran default kecil */
+  height: auto; /* proporsi tetap */
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* ===================== AYAT & HADITS ===================== */
+#ayat-hadits blockquote {
+  background: var(--white);
+  border-left: 4px solid var(--emerald-main);
+  padding: 20px 25px;
+  margin: 30px 0;
+  font-style: italic;
+  border-radius: 8px;
+}
+
+#ayat-hadits hr {
+  display: none;
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+  background: var(--emerald-main);
+  color: var(--white);
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+}
+
+/* ===================== MEDIA QUERIES ===================== */
+
+/* Laptop */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 5%;
+  }
+  .hero-content h1 {
+    font-size: 45px;
+  }
+  .section,
+  .alt-section {
+    padding: 60px 5%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+  }
+  .nav-menu {
+    margin-top: 10px;
+    gap: 15px;
+  }
+  .hero {
+    padding-top: 160px;
+  }
+  .hero-content h1 {
+    font-size: 36px;
+  }
+  .artikel-card {
+    padding: 25px;
+  }
+}
+
+/* Handphone */
+@media (max-width: 480px) {
+  .logo h2 {
+    font-size: 20px;
+  }
+  .nav-menu {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-menu li a {
+    font-size: 11px;
+  }
+  .hero-content h1 {
+    font-size: 28px;
+  }
+  .section-title {
+    font-size: 26px;
+  }
+  .img-artikel,
+  .img-content {
+    max-width: 140px;
+  }
+}
